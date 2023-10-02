@@ -1,0 +1,19 @@
+{% extends 'pattern.html' %}
+
+{% block title %}
+    RSD Production - Home
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>Restless Spirits Distilling Production Tools</h1>
+
+        <ul>
+            {% for x in apps_list %}
+                <li>
+                    <a href={{ x.url_main }}>{{ x.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
