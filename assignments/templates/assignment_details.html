@@ -6,11 +6,34 @@
 
 {% block content %}
 <h1>{{ assignment.title }}</h1>
-<h2>{{ assignment.description }}</h2>
+<p>Status:
+    {% if assignment.completed %}
+        <span style="color:red">
+            <b>Closed</b>
+        </span>
+    {% else %}
+        <span style="color:blue">
+            <b>Open</b>
+        </span>
+    {% endif %}
+</p>
+
+<h3>{{ assignment.description }}</h3>
 
 <p>Assigned to: {{ assignment.assigned_to }}</p>
+<p>Due Date: {{assignment.due_date }}</p>
 <p>Time Created: {{ assignment.time_created }}</p>
-<p>Completed? {{ assignment.completed }}</p>
 
-<p>Back to <a href='/assignments/'>Assignments</a></p>
+<p>
+    Back to 
+    <a href='/assignments/'>
+        Assignments
+    </a>
+     | 
+    <a href={% url 'assignment_delete' assignment.id %} onclick="return confirm('Are you sure?');">
+        Delete
+    </a>
+     this assignment
+</p>
+
 {% endblock %}

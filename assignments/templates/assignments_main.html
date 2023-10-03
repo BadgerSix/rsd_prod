@@ -7,6 +7,14 @@ Assignments Main Page
 {% block content %}
 <h1> Current Assignments </h1>
 
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}><b>{{ message }}</b></li>
+    {% endfor %}
+</ul>
+{% endif %}
+
 <ul>
     {% for x in assignments_list %}
     <li><a href='details/{{ x.id }}'>{{x.title}}</a> - Created: {{x.time_created}}</li>
