@@ -1,15 +1,15 @@
 {% extends 'pattern.html' %}
 
 {% block title %}
-    Assignments Main Page
+Assignments Main Page
 {% endblock %}
 
 {% block content %}
-    <h1> Current Assignments </h1>
+<h1> Current Assignments </h1>
 
-    <ul>
-        {% for x in assignments_list %}
-            <li>{{x.title}} - Created: {{x.time_created}}</li>
-        {% endfor %}
-    </ul>
+<ul>
+    {% for x in assignments_list %}
+    <li><a href='details/{{ x.id }}'>{{x.title}}</a> - Created: {{x.time_created}}</li>
+    {% endfor %}
+</ul>
 {% endblock %}

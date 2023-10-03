@@ -1,7 +1,16 @@
-{% extends 'pattern.html' &}
+{% extends 'pattern.html' %}
 
 {% block title %}
+{{ assignment.title }}
 {% endblock %}
 
 {% block content %}
+<h1>{{ assignment.title }}</h1>
+<h2>{{ assignment.description }}</h2>
+
+<p>Assigned to: {{ assignment.assigned_to }}</p>
+<p>Time Created: {{ assignment.time_created }}</p>
+<p>Completed? {{ assignment.completed }}</p>
+
+<p>Back to <a href='/assignments/'>Assignments</a></p>
 {% endblock %}

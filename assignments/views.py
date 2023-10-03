@@ -12,6 +12,10 @@ def main(request):
     }
     return HttpResponse(template.render(context, request))
 
-def details(request):
+def details(request, id):
     template = loader.get_template('assignment_details.html')
-    return HttpResponse(template.render())
+    assignment = Assignment.objects.get(id=id)
+    context = {
+        'assignment': assignment,
+    }
+    return HttpResponse(template.render(context, request))
