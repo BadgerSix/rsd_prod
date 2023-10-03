@@ -1,0 +1,14 @@
+{% extends 'pattern.html' %}
+
+{% block title %}
+Members Main Page
+{% endblock %}
+
+{% block content %}
+<h1>Restless Spirits Distilling Production Team</h1>
+<ul>
+    {% for x in all_members %}
+    <li><a href='details/{{ x.id }}'>{{ x.firstname }} {{ x.lastname }}</a> - {{ x.job_title }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
